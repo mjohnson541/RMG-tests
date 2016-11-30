@@ -32,6 +32,21 @@ script:
   - ./run.sh solvent_hexane benchmark testmodel
   - ./run.sh methane benchmark testmodel
 
+install: 
+  - chmod +x install_benchmark2.sh
+  - . ./install_benchmark2.sh
+
+script: 
+  - ./run.sh eg1 benchmark2 testmodel2
+  - ./run.sh eg3 benchmark2 testmodel2
+  - ./run.sh eg5 benchmark2 testmodel2
+  - ./run.sh eg6 benchmark2 testmodel2
+  - ./run.sh eg7 benchmark2 testmodel2
+  - ./run.sh NC benchmark2 testmodel2
+  - ./run.sh MCH benchmark2 testmodel2
+  - ./run.sh solvent_hexane benchmark2 testmodel2
+  - ./run.sh methane benchmark2 testmodel2
+
 after_script:
   - chmod +x after_install.sh
   - . ./after_install.sh

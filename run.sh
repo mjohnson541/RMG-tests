@@ -22,6 +22,10 @@ cp examples/rmg/$eg/input.py tests/$benchmarkmodel/$eg/input.py
 source activate benchmark
 
 echo "benchmark version of RMG: "$RMG_BENCHMARK
+cd $RMG_BENCHMARK
+git log --format=%H%n%cd -1
+cd -
+
 export PYTHONPATH=$RMG_BENCHMARK:$ORIGIN_PYTHONPATH 
 
 # use the rmgrc file to point to the location of the desired RMG-database:
@@ -44,6 +48,9 @@ rm -rf tests/$testmodel/$eg/*
 cp examples/rmg/$eg/input.py tests/$testmodel/$eg/input.py
 source activate testing
 echo "test version of RMG: "$RMG_TESTING
+cd $RMG_TESTING
+git log --format=%H%n%cd -1
+cd -
 
 export PYTHONPATH=$RMG_TESTING:$ORIGIN_PYTHONPATH 
 

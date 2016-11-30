@@ -22,15 +22,15 @@ install:
   - chmod +x run.sh
 
 script: 
-  - ./run.sh eg1
-  - ./run.sh eg3
-  - ./run.sh eg5
-  - ./run.sh eg6
-  - ./run.sh eg7
-  - ./run.sh NC
-  - ./run.sh MCH
-  - ./run.sh solvent_hexane
-  - ./run.sh methane
+  - ./run.sh eg1 benchmark testmodel
+  - ./run.sh eg3 benchmark testmodel
+  - ./run.sh eg5 benchmark testmodel
+  - ./run.sh eg6 benchmark testmodel
+  - ./run.sh eg7 benchmark testmodel
+  - ./run.sh NC benchmark testmodel
+  - ./run.sh MCH benchmark testmodel
+  - ./run.sh solvent_hexane benchmark testmodel
+  - ./run.sh methane benchmark testmodel
 
 after_script:
   - chmod +x after_install.sh

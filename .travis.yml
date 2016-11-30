@@ -23,12 +23,8 @@ install:
 
 script: 
   - ./run.sh eg1 benchmark testmodel
-
-install: 
   - chmod +x install_benchmark2.sh
   - . ./install_benchmark2.sh
-
-script: 
   - ./run.sh eg1 benchmark2 testmodel2
 
 after_script:

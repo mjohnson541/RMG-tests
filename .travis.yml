@@ -20,6 +20,8 @@ install:
   - chmod +x install.sh
   - . ./install.sh
   - chmod +x run.sh
+  - chmod +x version_summary.sh
+  - . ./version_summary.sh 1
 
 script: 
   - ./run.sh eg1 benchmark testmodel
@@ -33,6 +35,7 @@ script:
   - ./run.sh methane benchmark testmodel
   - chmod +x install_benchmark2.sh
   - . ./install_benchmark2.sh
+  - . ./version_summary.sh 2
   - ./run.sh eg1 benchmark2 testmodel2
   - ./run.sh eg3 benchmark2 testmodel2
   - ./run.sh eg5 benchmark2 testmodel2

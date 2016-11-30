@@ -30,6 +30,7 @@ git checkout environment_linux.yml
 
 export RMG_BENCHMARK=`pwd`
 echo "benchmark2 version of RMG: "$RMG_BENCHMARK
+git log --format=%H%n%cd -1
 
 # compile RMG-Py:
 source activate benchmark
@@ -43,6 +44,7 @@ git clone https://github.com/ReactionMechanismGenerator/RMG-database.git
 cd RMG-database
 export RMGDB_BENCHMARK=`pwd`
 echo "benchmark2 version of RMG-database: "$RMGDB_BENCHMARK
+git log --format=%H%n%cd -1
 cd ..
 
 # prepare testing RMG-Py and RMG-db
@@ -62,11 +64,19 @@ if [ "${pieces[0]}" == "rmgdb" ]; then
   # set the RMG environment variable:
   export RMG_TESTING=$RMG_BENCHMARK
   echo "test version of RMG (same as benchmark): "$RMG_TESTING
+
+  cd $RMG_TESTING
+  git log --format=%H%n%cd -1
+  cd -
+
   conda remove -n testing --all -y
   conda create --name testing --clone benchmark
 
   # RMG-database for testing will be same
   echo "testing version of RMG-database: "$RMGDB_TESTING
+  cd $RMGDB_TESTING
+  git log --format=%H%n%cd -1
+  cd -
 
   # return to parent directory:
   cd ..
@@ -80,9 +90,15 @@ else
 
   # RMG-Py for testing will be same
   echo "test version of RMG: "$RMG_TESTING
+  cd $RMG_TESTING
+  git log --format=%H%n%cd -1
+  cd -
 
   export RMGDB_TESTING=$RMGDB_BENCHMARK
   echo "testing version of RMG-database: "$RMGDB_TESTING
+  cd $RMGDB_TESTING
+  git log --format=%H%n%cd -1
+  cd -
 
   # return to parent directory:
   cd ..

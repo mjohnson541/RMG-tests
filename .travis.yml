@@ -32,7 +32,6 @@ script:
   - ./run.sh NC benchmark testmodel
   - ./run.sh MCH benchmark testmodel
   - ./run.sh solvent_hexane benchmark testmodel
-  - ./run.sh methane benchmark testmodel
   - chmod +x install_benchmark2.sh
   - . ./install_benchmark2.sh
   - . ./version_summary.sh 2
